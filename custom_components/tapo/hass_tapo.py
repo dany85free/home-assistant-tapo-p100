@@ -31,7 +31,7 @@ class HassTapo:
             discovered_device = DiscoveredDevice.from_dict(discover_data)
             device = await discovered_device.get_tapo_device(credentials=self.config.credentials, session=session)
         else:
-            device = await connect(config=self.config, session=session)
+            device = await connect(config=self.config)
 
         await device.update()
         _LOGGER.info("Detected model of %s: %s", str(device.host), str(device.model))
